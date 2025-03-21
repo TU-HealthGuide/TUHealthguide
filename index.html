@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU Health Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="TU Health Guide Logo">
+            <h1>TU Health Guide</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#appointments">Appointments</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/webvscode/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h2>Your Health, Your Guide</h2>
+            <p>Empowering you with real-time blood pressure tracking and professional healthcare connections.</p>
+            <a href="#features" class="btn">Explore Features</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Why Choose TU Health Guide?</h2>
+        <div class="feature-container">
+            <div class="feature">
+               <a href="/atif Web Page/#bp"><h3>📊 Blood Pressure Tracking</h3>
+                <p>Monitor and analyze your BP readings over time with intuitive graphs.</p></a>
+            </div>
+            <div class="feature">
+                <a href="/atif Web Page/#alert"><h3>⚠ Instant Alerts</h3>
+                <p>Receive notifications if your BP is dangerously high or low.</p></a>
+            </div>
+            <div class="feature">
+                <a href=""><h3>📅 Appointment Scheduling</h3>
+                <p>Effortlessly book and manage your healthcare appointments.</p></a>
+            </div>
+            <div class="feature">
+                <h3>🔒 Secure & Private</h3>
+                <p>Your health data is encrypted and follows GDPR & NHS standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointments Section -->
+    <section id="appointments">
+        <h2>Book an Appointment</h2>
+        <form id="appointmentForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="date">Preferred Date:</label>
+            <input type="date" id="date" required>
+
+            <button type="submit" class="btn">Book Now</button>
+        </form>
+        <p id="confirmationMessage" class="hidden">Your appointment has been booked!</p>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security">
+        <h2>Data Protection & Compliance</h2>
+        <p>Your privacy is our priority. Our platform is secured with industry-leading encryption and follows NHS guidelines.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@tuhealthguide.com</p>
+        <p>Phone: +44 123 456 7890</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 TU Health Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
