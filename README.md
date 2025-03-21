@@ -7,20 +7,8 @@ Stress Evaluation via Face Scanning
 Body Mass Index (BMI) Calculation
 User Registration & Profiles
 AI Health Chatbot for personalized guidance
-🔗 Live Site: https://your-github-username.github.io/tu-healthguide (Update this after deployment)
+🔗 Live Site: https://tu-healthguide.github.io/tu-healthguide (Update this after deployment)
 
-🚀 Getting Started
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-github-username/tu-healthguide.git
-cd tu-healthguide
-2️⃣ Deploy on GitHub Pages
-Push your project to GitHub.
-In the repository, go to Settings → Pages.
-Under Branch, select main (or gh-pages if applicable).
-Click Save, and your website will be live in a few minutes.
 🛠 Technologies Used
 HTML, CSS, JavaScript
 Bootstrap for responsive design
