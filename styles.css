@@ -62,6 +62,7 @@ nav a:hover {
 #search {
     width: 1000px;
     border-radius: 30px;
+    border:1px black solid;
 }
 
 #submit {
@@ -75,7 +76,7 @@ nav a:hover {
     transition: 0.3s;
 }
 
-.btn:hover {
+#submit:hover {
     background: darkred;
     transform: scale(1.05);
 }
