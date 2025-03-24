@@ -69,23 +69,25 @@
             event.preventDefault();
 
             // Get input values and convert them to numbers
+            var BP = systolic / diastolic
             const systolic = parseFloat(document.getElementById('systolic').value);
             const diastolic = parseFloat(document.getElementById('diastolic').value);
+            const BP = parseFloat(document.getElementById('BP').value)
             const timestamp = new Date().toLocaleTimeString();
 
             // Determine colors based on BP levels
             const systolicColor = systolic > 179 ? '' : 'blue';
             const diastolicColor = diastolic > 109 ? 'red' : 'blue';
+            const BPColor = BP > 1.61 ? 'red' :'blue';
 
             // Store data
             bpData.push({ timestamp, systolic, diastolic });
 
             // Update Chart
             chart.data.labels.push(timestamp);
-            chart.data.datasets[0].data.push(systolic);
-            chart.data.datasets[1].data.push(diastolic);
-            chart.data.datasets[0].backgroundColor.push(systolicColor);
-            chart.data.datasets[1].backgroundColor.push(diastolicColor);
+            chart.data.datasets[0].data.push(BP);
+            chart.data.datasets[0].backgroundColor.push(BPColor);
+            
             
             chart.update();
         });
