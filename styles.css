@@ -60,7 +60,8 @@ nav a:hover {
 }
 
 #search {
-    width: 1000px;
+    width: 600px;
+    height: 100px;
     border-radius: 30px;
     border:1px black solid;
 }
