@@ -86,7 +86,9 @@
             // Update Chart
             chart.data.labels.push(timestamp);
             chart.data.datasets[0].data.push(BP);
+            chart.data.datasets[1].data.push(timestamp);
             chart.data.datasets[0].backgroundColor.push(BPColor);
+            chart.data.datasets[1].backgroundColor.push(BPColor);
             
             
             chart.update();
