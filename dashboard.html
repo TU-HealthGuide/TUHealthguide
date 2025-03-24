@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BP Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="TU Health Guide Logo">
+            <h1>TU Health Guide</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#appointments">Appointments</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>BP Monitoring Dashboard</h2>
+        <form id="bpForm">
+            <input type="number" id="systolic" placeholder="Systolic (mmHg)" required>
+            <input type="number" id="diastolic" placeholder="Diastolic (mmHg)" required>
+            <button type="submit">Log BP</button>
+        </form>
+        <canvas id="bpChart"></canvas>
+    </div>
+
+    <script>
+        let bpData = [];
+
+        // Initialize Chart
+        const ctx = document.getElementById('bpChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Systolic',
+                        backgroundColor: [],
+                        data: []
+                    },
+                    {
+                        label: 'Diastolic',
+                        backgroundColor: [],
+                        data: []
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        document.getElementById('bpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get input values and convert them to numbers
+            const systolic = parseFloat(document.getElementById('systolic').value);
+            const diastolic = parseFloat(document.getElementById('diastolic').value);
+            const timestamp = new Date().toLocaleTimeString();
+
+            // Determine colors based on BP levels
+            const systolicColor = systolic > 179 ? '' : 'blue';
+            const diastolicColor = diastolic > 109 ? 'red' : 'blue';
+
+            // Store data
+            bpData.push({ timestamp, systolic, diastolic });
+
+            // Update Chart
+            chart.data.labels.push(timestamp);
+            chart.data.datasets[0].data.push(systolic);
+            chart.data.datasets[1].data.push(diastolic);
+            chart.data.datasets[0].backgroundColor.push(systolicColor);
+            chart.data.datasets[1].backgroundColor.push(diastolicColor);
+            
+            chart.update();
+        });
+    </script>
+</body>
+</html>
