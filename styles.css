@@ -60,7 +60,8 @@ nav a:hover {
 }
 
 #search {
-    max-width: 600px;
+    width: 1000px;
+    border-radius: 30px;
 }
 
 #submit {
