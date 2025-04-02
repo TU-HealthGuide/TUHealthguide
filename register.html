@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .strength {
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    .weak {
+      color: red;
+    }
+    .medium {
+      color: orange;
+    }
+    .strong {
+      color: green;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4cae4c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="postcode">Post Code:</label>
+      <input type="text" id="postcode" name="postcode" required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <div id="strengthMsg" class="strength"></div>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const password = document.getElementById('password');
+    const strengthMsg = document.getElementById('strengthMsg');
+
+    password.addEventListener('input', () => {
+      const val = password.value;
+      let strength = '';
+      let regexWeak = /.{1,6}$/;
+      let regexMedium = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+      let regexStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+
+      if (regexStrong.test(val)) {
+        strength = '<span class="strong">Strong</span>';
+      } else if (regexMedium.test(val)) {
+        strength = '<span class="medium">Medium</span>';
+      } else if (regexWeak.test(val)) {
+        strength = '<span class="weak">Weak</span>';
+      }
+
+      strengthMsg.innerHTML = `Password strength: ${strength}`;
+    });
+  </script>
+</body>
+</html>
