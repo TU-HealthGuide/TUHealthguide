@@ -7,6 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Firebase App (core) -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
+
+<script>
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIza...abc",
+    authDomain: "healthguide.firebaseapp.com",
+    projectId: "healthguide",
+    storageBucket: "healthguide.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcd1234"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // Example: Save form data to Firestore
+  function submitHealthForm() {
+    const name = document.getElementById("name").value;
+    const symptoms = document.getElementById("symptoms").value;
+
+    db.collection("health_logs").add({
+      name: name,
+      symptoms: symptoms,
+      timestamp: new Date()
+    })
+    .then(() => alert("Data saved to Firebase!"))
+    .catch(error => console.error("Error saving data:", error));
+  }
+</script>
 
     <!-- Navigation Bar -->
     <header>
@@ -50,22 +85,11 @@
     </section>
 
 <!--     Appointments Section 
-    <section id="appointments">
-        <h2>Book an Appointment</h2>
-        <form id="appointmentForm">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" required>
-
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" required>
-
-            <label for="date">Preferred Date:</label>
-            <input type="date" id="date" required>
-
-            <button type="submit" class="btn">Book Now</button>
-        </form>
-        <p id="confirmationMessage" class="hidden">Your appointment has been booked!</p>
-    </section>
+<form onsubmit="submitHealthForm(); return false;">
+  <input type="text" id="name" placeholder="Your Name" required>
+  <textarea id="symptoms" placeholder="Your Symptoms" required></textarea>
+  <button type="submit">Submit</button>
+</form>
 -->
     <!-- Security Section -->
     <section id="security">
